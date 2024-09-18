@@ -1,4 +1,4 @@
-package Shashank.ApiAutomation.September2024.exe_15092024;
+package Shashank.ApiAutomation.September2024.exe_15092024.BuilderDesignPattern;
 
 public class NoDesignPattern {
     public void stage1(){
