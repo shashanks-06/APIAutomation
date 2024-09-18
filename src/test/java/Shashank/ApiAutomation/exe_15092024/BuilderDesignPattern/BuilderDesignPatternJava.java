@@ -1,4 +1,4 @@
-package Shashank.ApiAutomation.September2024.exe_15092024.BuilderDesignPattern;
+package Shashank.ApiAutomation.exe_15092024.BuilderDesignPattern;
 
 public class BuilderDesignPatternJava {
     // Change return type of each method as a Class type
