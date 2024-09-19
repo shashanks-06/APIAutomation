@@ -5,9 +5,12 @@ import io.restassured.http.ContentType;
 import io.restassured.response.Response;
 import io.restassured.response.ValidatableResponse;
 import io.restassured.specification.RequestSpecification;
+import org.testng.annotations.Test;
 
 public class NonBDDStylePOST {
-    public static void main(String[] args) {
+
+    @Test
+    public void testng_Nonbdd () {
 
         String payload = " {\n" +
                 "            \"username\" : \"admin\",\n" +
