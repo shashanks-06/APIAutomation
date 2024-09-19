@@ -9,8 +9,8 @@ public class BDDStylePOST {
     // URL - https://restful-booker.herokuapp.com/auth
     // BODY - PAYLOAD - JSON
     // {
-    //    "username" : "admin",
-    //    "password" : "password123"
+    //    "username": "admin",
+    //    "password": "password123"
     //}
     // HEADER - Content Type -> application/json
 

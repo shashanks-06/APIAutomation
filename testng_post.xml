@@ -3,6 +3,7 @@
 <suite name="All Test Suite">
     <test verbose="2" preserve-order="true" name="C:/Users/shash/IdeaProjects/APIAutomation">
         <classes>
+<!--            For both Post requests using BDD and NonBDD styles-->
             <class name="Shashank.ApiAutomation.ex_15092024.CRUD.POST.BDDStylePOST">
             </class>
             <class name="Shashank.ApiAutomation.ex_15092024.CRUD.POST.NonBDDStylePOST">

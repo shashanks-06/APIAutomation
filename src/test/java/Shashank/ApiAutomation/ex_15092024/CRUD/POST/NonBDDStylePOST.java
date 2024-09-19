@@ -18,7 +18,7 @@ public class NonBDDStylePOST {
                 "        }";
 
         // Given - Request Spec
-//        Preparing request
+//        Preparing the Request
         RequestSpecification reqSpec = RestAssured.given();
 
         reqSpec.baseUri("https://restful-booker.herokuapp.com");
@@ -29,13 +29,13 @@ public class NonBDDStylePOST {
 
 
 //        When - Response
-//        Making request
+//        Making Request
         Response res = reqSpec.when().post();
 
 
 //       Then - ValidatableResponse
 //        Validation
-//        Verifying request
+//        Verifying Request
         ValidatableResponse valRes = res.then();
         valRes.log().all();
         valRes.statusCode(200);
