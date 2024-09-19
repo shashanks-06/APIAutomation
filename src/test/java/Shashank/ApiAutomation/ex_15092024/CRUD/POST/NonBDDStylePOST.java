@@ -1,4 +1,4 @@
-package Shashank.ApiAutomation.exe_15092024.CRUD.POST;
+package Shashank.ApiAutomation.ex_15092024.CRUD.POST;
 
 import io.restassured.RestAssured;
 import io.restassured.http.ContentType;

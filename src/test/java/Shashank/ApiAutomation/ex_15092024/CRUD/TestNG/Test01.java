@@ -1,4 +1,4 @@
-package Shashank.ApiAutomation.exe_15092024.CRUD.TestNG;
+package Shashank.ApiAutomation.ex_15092024.CRUD.TestNG;
 
 import io.restassured.RestAssured;
 import org.testng.annotations.Test;

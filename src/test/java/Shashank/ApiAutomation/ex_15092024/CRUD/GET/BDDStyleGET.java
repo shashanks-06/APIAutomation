@@ -1,4 +1,4 @@
-package Shashank.ApiAutomation.exe_15092024.CRUD.GET;
+package Shashank.ApiAutomation.ex_15092024.CRUD.GET;
 
 import io.restassured.RestAssured;
 
