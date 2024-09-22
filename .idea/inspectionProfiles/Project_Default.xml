@@ -1,0 +1,43 @@
+<component name="InspectionProjectProfileManager">
+  <profile version="1.0">
+    <option name="myName" value="Project Default" />
+    <inspection_tool class="VulnerableLibrariesLocal" enabled="true" level="WARNING" enabled_by_default="true">
+      <option name="isIgnoringEnabled" value="true" />
+      <option name="ignoredModules">
+        <list>
+          <option value="APIAutomation" />
+          <option value="APIAutomation" />
+          <option value="APIAutomation" />
+        </list>
+      </option>
+      <option name="ignoredPackages">
+        <list>
+          <option value="commons-codec:commons-codec:1.11" />
+          <option value="com.google.guava:guava:23.6-android" />
+          <option value="org.freemarker:freemarker:2.3.28" />
+        </list>
+      </option>
+      <option name="ignoredReasons">
+        <list>
+          <option value="Not exploitable" />
+          <option value="Not exploitable" />
+          <option value="Not exploitable" />
+        </list>
+      </option>
+    </inspection_tool>
+    <inspection_tool class="groupsTestNG" enabled="true" level="WARNING" enabled_by_default="true">
+      <option name="groups">
+        <value>
+          <list size="6">
+            <item index="0" class="java.lang.String" itemvalue="qa" />
+            <item index="1" class="java.lang.String" itemvalue="sanity" />
+            <item index="2" class="java.lang.String" itemvalue="dev" />
+            <item index="3" class="java.lang.String" itemvalue="preprod" />
+            <item index="4" class="java.lang.String" itemvalue="stage" />
+            <item index="5" class="java.lang.String" itemvalue="reg" />
+          </list>
+        </value>
+      </option>
+    </inspection_tool>
+  </profile>
+</component>
