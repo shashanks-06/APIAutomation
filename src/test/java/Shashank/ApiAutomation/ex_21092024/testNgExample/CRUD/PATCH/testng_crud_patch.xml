@@ -7,7 +7,7 @@
             <class name="Shashank.ApiAutomation.ex_21092024.testNgExample.CRUD.PATCH.TestCaseIntegration_PATCH">
                 <methods>
                     <include name="test_UpdateRequest_Patch"/>
-                    <include name="test_UpdateRequest_GET">
+                    <include name="test_getUpdatedRequest_GET">
                     </include>
                     <include name="test_DELETE_Booking">
                     </include>

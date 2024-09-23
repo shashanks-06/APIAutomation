@@ -6,6 +6,7 @@ import io.restassured.http.ContentType;
 import io.restassured.response.Response;
 import io.restassured.response.ValidatableResponse;
 import io.restassured.specification.RequestSpecification;
+import org.testng.Assert;
 import org.testng.annotations.Test;
 
 public class TestCaseIntegration_PATCH {
@@ -106,6 +107,11 @@ public class TestCaseIntegration_PATCH {
 
         valRes = res.then().log().all();
         valRes.statusCode(200);
+
+        String additionalneeds = res.jsonPath().getString("additionalneeds");
+
+        Assert.assertEquals(additionalneeds, "Nano Tech");
+        System.out.println("additionalneeds are updated to "+additionalneeds+" and validated");
     }
 
     @Test
