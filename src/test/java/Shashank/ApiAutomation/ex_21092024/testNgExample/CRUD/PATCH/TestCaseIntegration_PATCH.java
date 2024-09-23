@@ -1,4 +1,4 @@
-package Shashank.ApiAutomation.ex_21092024.testNgExample.CRUD;
+package Shashank.ApiAutomation.ex_21092024.testNgExample.CRUD.PATCH;
 
 
 import io.restassured.RestAssured;
@@ -95,9 +95,55 @@ public class TestCaseIntegration_PATCH {
     }
 
     @Test
-    public void test_getUpdatedId_and_Token(){
-        System.out.println("Token is " +token);
-        System.out.println("BookingId is " +bookingId);
+    public void test_getUpdatedRequest_GET(){
+        System.out.println("BookingID is "+bookingId);
+        reqSpec = RestAssured.given();
+        reqSpec.baseUri("https://restful-booker.herokuapp.com/");
+        reqSpec.basePath("/booking/" +bookingId);
+        reqSpec.contentType(ContentType.JSON).log().all();
+
+        res = reqSpec.when().get();
+
+        valRes = res.then().log().all();
+        valRes.statusCode(200);
+    }
+
+    @Test
+    public void test_DELETE_Booking(){
+        System.out.println("BookingID is "+bookingId);
+        System.out.println("Token is "+token);
+
+        reqSpec = RestAssured.given();
+        reqSpec.baseUri("https://restful-booker.herokuapp.com/");
+        reqSpec.basePath("/booking/" +bookingId);
+        reqSpec.contentType(ContentType.JSON);
+        reqSpec.cookie("token", token).log().all();
+
+
+        res = reqSpec.when().delete();
+
+        valRes = res.then().log().all();
+        valRes.statusCode(201);
+
+        System.out.println(bookingId+ " is Successfully Deleted");
+    }
+
+
+    @Test
+    public void test_after_delete_request_get() {
+        System.out.println("BookingID is "+bookingId);
+
+        reqSpec = RestAssured.given();
+        reqSpec.baseUri("https://restful-booker.herokuapp.com/");
+        reqSpec.basePath("/booking/" +bookingId);
+        reqSpec.contentType(ContentType.JSON);
+
+        res = reqSpec.when().get();
+
+        valRes = res.then().log().all();
+        valRes.statusCode(404);
+
+        System.out.println(bookingId+ " is not available because it is already deleted");
     }
 
 }
