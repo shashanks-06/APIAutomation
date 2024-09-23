@@ -1,4 +1,4 @@
-package Shashank.ApiAutomation.ex_21092024.testNgExample.CRUD;
+package Shashank.ApiAutomation.ex_21092024.testNgExample.CRUD.PUT;
 
 import io.restassured.RestAssured;
 import io.restassured.http.ContentType;
@@ -22,9 +22,6 @@ public class TestCaseIntegration_PUT {
 
     String token;
     String bookingId;
-
-
-
 
     public String getToken(){
 
@@ -121,8 +118,17 @@ public class TestCaseIntegration_PUT {
 //    @Test(dependsOnMethods = "test_UpdateRequest_PUT")
 // No need of dependsUpon method as we added <include> tag in <methods> in testng.xml
     @Test       // No need of dependsUpon method as we added include tag in testng.xml
-    public void test_UpdateRequest_GET(){
+    public void test_getUpdatedRequest_GET(){
         System.out.println("BookingID is "+bookingId);
+        RequestSpecification reqSpec = RestAssured.given();
+        reqSpec.baseUri("https://restful-booker.herokuapp.com/");
+        reqSpec.basePath("/booking/" +bookingId);
+        reqSpec.contentType(ContentType.JSON).log().all();
+
+        Response res = reqSpec.when().get();
+
+        ValidatableResponse valRes = res.then().log().all();
+        valRes.statusCode(200);
     }
 
 //    @Test(dependsOnMethods = "test_UpdateRequest_GET")
@@ -130,11 +136,37 @@ public class TestCaseIntegration_PUT {
     public void test_DELETE_Booking(){
         System.out.println("BookingID is "+bookingId);
         System.out.println("Token is "+token);
+
+        RequestSpecification reqSpec = RestAssured.given();
+        reqSpec.baseUri("https://restful-booker.herokuapp.com/");
+        reqSpec.basePath("/booking/" +bookingId);
+        reqSpec.contentType(ContentType.JSON);
+        reqSpec.cookie("token", token).log().all();
+
+
+        Response res = reqSpec.when().delete();
+
+        ValidatableResponse valRes = res.then().log().all();
+        valRes.statusCode(201);
+
+        System.out.println(bookingId+ " is Successfully Deleted");
     }
 
 //    @Test(dependsOnMethods = "test_DELETE_Booking")
     @Test
     public void test_after_delete_request_get() {
         System.out.println("BookingID is "+bookingId);
+
+        RequestSpecification reqSpec = RestAssured.given();
+        reqSpec.baseUri("https://restful-booker.herokuapp.com/");
+        reqSpec.basePath("/booking/" +bookingId);
+        reqSpec.contentType(ContentType.JSON);
+
+        Response res = reqSpec.when().get();
+
+        ValidatableResponse valRes = res.then().log().all();
+        valRes.statusCode(404);
+
+        System.out.println(bookingId+ " is not available because it is already deleted");
     }
 }
