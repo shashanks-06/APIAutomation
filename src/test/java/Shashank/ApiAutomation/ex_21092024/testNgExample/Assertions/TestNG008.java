@@ -7,11 +7,15 @@ import io.restassured.response.ValidatableResponse;
 import io.restassured.specification.RequestSpecification;
 import org.hamcrest.Matcher;
 import org.hamcrest.Matchers;
+import org.testng.Assert;
 import org.testng.annotations.Test;
+
+// entry point for all assertThat methods and utility methods (e.g. entry)
+import static org.assertj.core.api.Assertions.*;
 
 public class TestNG008 {
     String token;
-    String bookingId;
+    Integer bookingId;
 
     RequestSpecification reqSpec;
     Response res;
@@ -44,8 +48,8 @@ public class TestNG008 {
         ValidatableResponse valRes = res.then().log().all();
         valRes.statusCode(200);
 
-        bookingId = res.jsonPath().getString("bookingid");
-        System.out.println(bookingId);
+//        bookingId = res.jsonPath().getString("bookingid");
+//        System.out.println(bookingId);
 
         // Rest Assured Default - Hamcrest
         // import org.hamcrest.Matchers;
@@ -58,8 +62,16 @@ public class TestNG008 {
         // TestNG Assertion
         // SoftAssert vs
         // HardAssert - This means that if any assertion fails, the remaining statements in that test method will not be executed.
+        bookingId = res.then().extract().path("bookingid");
+        String firstname = res.then().extract().path("booking.firstname");
+
+//        Assert.assertNotNull(bookingId);
+//        Assert.assertEquals(firstname, "Shashank");
 
 
+        // AssertJ Assertion
+        assertThat(bookingId).isNotNull().isNotNegative().isZero();
+        assertThat(firstname).isEqualTo("Shashank").isNotEmpty().isNotBlank();
 
     }
 
