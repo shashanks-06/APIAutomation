@@ -5,6 +5,7 @@ import io.restassured.http.ContentType;
 import io.restassured.response.Response;
 import io.restassured.response.ValidatableResponse;
 import io.restassured.specification.RequestSpecification;
+import org.testng.Assert;
 import org.testng.annotations.Test;
 
 // To run test cases sequentially we can do
@@ -129,6 +130,16 @@ public class TestCaseIntegration_PUT {
 
         ValidatableResponse valRes = res.then().log().all();
         valRes.statusCode(200);
+
+//        Getting the firstname and lastname from updated id to check
+        String actualFirstName = res.jsonPath().getString("firstname");
+        String actualLastName = res.jsonPath().getString("lastname");
+
+//        Validation
+        Assert.assertEquals(actualFirstName, "Shashank");
+        Assert.assertEquals(actualLastName, "Surjekar");
+
+        System.out.println("Validated that firstname is " + actualFirstName + " and lastname is " + actualLastName);
     }
 
 //    @Test(dependsOnMethods = "test_UpdateRequest_GET")

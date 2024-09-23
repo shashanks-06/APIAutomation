@@ -8,7 +8,7 @@
                 <methods>
                     <include name="test_UpdateRequest_PUT">
                     </include>
-                    <include name="test_UpdateRequest_GET">
+                    <include name="test_getUpdatedRequest_GET">
                     </include>
                     <include name="test_DELETE_Booking">
                     </include>
