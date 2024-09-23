@@ -12,7 +12,7 @@ import org.testng.annotations.Test;
 // - add names of TestCases in alphabetical order
 // - use dependsUponMethods function as @Test(dependsUponMethods = "-------")
 // - add <methods> in testng files in sequence o run the TC
-public class TestCaseIntegration {
+public class TestCaseIntegration_PUT {
     //  Create a Token
     // Create a Booking
     //  Perform  a PUT request

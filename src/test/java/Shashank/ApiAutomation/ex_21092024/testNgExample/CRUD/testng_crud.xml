@@ -4,7 +4,7 @@
     <test verbose="2" preserve-order="true" name="APIAutomation/CRUD">
 
         <classes>
-            <class name="Shashank.ApiAutomation.ex_21092024.testNgExample.CRUD.TestCaseIntegration">
+            <class name="Shashank.ApiAutomation.ex_21092024.testNgExample.CRUD.TestCaseIntegration_PUT">
                 <methods>
                     <include name="test_UpdateRequest_PUT">
                     </include>
