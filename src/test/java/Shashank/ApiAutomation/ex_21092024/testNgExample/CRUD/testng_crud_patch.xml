@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="All Test Suite">
+    <test verbose="2" preserve-order="true" name="APIAutomation/CRUD">
+
+        <classes>
+            <class name="Shashank.ApiAutomation.ex_21092024.testNgExample.CRUD.TestCaseIntegration_PATCH">
+                <methods>
+                    <include name="test_UpdateRequest_Patch"/>
+                    <include name="test_getUpdatedId_and_Token"/>
+                </methods>
+            </class>
+
+        </classes>
+    </test>
+</suite>
