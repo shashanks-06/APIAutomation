@@ -1,4 +1,4 @@
-package Shashank.ApiAutomation.ex_22092024;
+package Shashank.ApiAutomation.ex_22092024.jsonPath;
 
 import io.restassured.RestAssured;
 import io.restassured.http.ContentType;
@@ -9,7 +9,7 @@ import io.restassured.specification.RequestSpecification;
 import org.testng.annotations.Test;
 
 import static org.assertj.core.api.Assertions.assertThat;
-import static org.assertj.core.api.Assertions.assertThatStream;
+
 
 public class JsonPath001 {
     String token;

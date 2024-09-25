@@ -1,4 +1,9 @@
-package Shashank.ApiAutomation.ex_22092024;
+package Shashank.ApiAutomation.ex_22092024.jsonPath;
+
+import io.restassured.path.json.JsonPath;
+import org.testng.Assert;
+import static org.assertj.core.api.Assertions.assertThat;
+
 
 public class JsonPath002 {
     public static void main(String[] args) {
@@ -43,5 +48,19 @@ public class JsonPath002 {
                 "    }\n" +
                 "  ]\n" +
                 "}";
+
+        JsonPath jsonPath = JsonPath.from(response);
+
+        String sup1Name = jsonPath.getString("members[0].name");
+        String sup1Power = jsonPath.getString("members[0].powers[2]");
+        System.out.println(sup1Name + "-" + sup1Power);
+
+        String sup2SecretId = jsonPath.getString("members[1].secretIdentity");
+        System.out.println(sup2SecretId);
+
+        Assert.assertEquals(jsonPath.getString("squadName"), "Super hero squad");
+
+        assertThat(jsonPath.getString("secretBase")).isNotBlank().isNotEmpty()
+                .isEqualTo("Super tower");
     }
 }
