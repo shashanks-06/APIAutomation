@@ -1,4 +1,4 @@
-package Shashank.ApiAutomation.ex_22092024;
+package Shashank.ApiAutomation.ex_22092024.verification;
 
 import io.qameta.allure.*;
 import org.testng.annotations.Test;
