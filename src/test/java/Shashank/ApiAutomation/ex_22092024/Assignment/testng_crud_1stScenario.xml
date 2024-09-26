@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="All Test Suite">
+    <test verbose="2" preserve-order="true" name="APIAutomation/CRUD">
+
+        <classes>
+            <class name="Shashank.ApiAutomation.ex_22092024.Assignment.RBIntegration">
+                <methods>
+                    <include name="test_createAuthToken">
+                    </include>
+                    <include name="test_createBooking">
+                    </include>
+                    <include name="test_update_bookingName">
+                    </include>
+                </methods>
+            </class>
+        </classes>
+    </test>
+</suite>

@@ -1,0 +1,20 @@
+Integration Scenarios - → API Automation Rest Assured
+Hashmap
+Class GSON
+TestNG assertions, AssertJ
+Allure Report
+Push the code to Github.com
+
+https://restful-booker.herokuapp.com/apidoc/index.html
+
+- Create a Booking, Update the Booking Name, Get the Booking by Id and verify.
+- Create a Booking, Delete the Booking with Id and Verify using GET request that it should not exist.
+- Get an Existing Booking from Get All Bookings Ids , Update a Booking and Verify using GET by id.
+- Create a BOOKING, Delete It
+- Invalid Creation - enter a wrong payload or Wrong JSON.
+- Trying to Update on a Delete Id -> 404
+
+Test for the Single Req
+- Response
+- Status Code
+- Headers
