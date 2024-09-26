@@ -1,4 +1,4 @@
-package Shashank.ApiAutomation.ex_22092024.pojos;
+package Shashank.ApiAutomation.ex_22092024.hashmaps;
 
 import io.restassured.RestAssured;
 import io.restassured.http.ContentType;
@@ -7,12 +7,10 @@ import io.restassured.response.ValidatableResponse;
 import io.restassured.specification.RequestSpecification;
 import org.testng.annotations.Test;
 
-import java.util.HashMap;
 import java.util.LinkedHashMap;
 import java.util.Map;
-import java.util.Objects;
 
-public class POJO001 {
+public class HashMaps {
     RequestSpecification requestSpecification;
     Response response;
     ValidatableResponse validatableResponse;
