@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="All Test Suite">
+    <test verbose="2" preserve-order="true" name="APIAutomation/CRUD">
+
+        <classes>
+            <class name="Shashank.ApiAutomation.ex_22092024.Assignment.RBIntegration">
+<!--        Create a Booking, Delete the Booking with Id and Verify using GET request that it should not exist.            -->
+                <methods>
+                    <include name="test_createAuthToken">
+                    </include>
+                    <include name="test_createBooking">
+                    </include>
+                    <include name="test_DeleteBookingById">
+                    </include>
+                    <include name="test_Get_DeletedBooking">
+                    </include>
+                </methods>
+            </class>
+        </classes>
+    </test>
+</suite>

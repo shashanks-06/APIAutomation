@@ -106,10 +106,6 @@ public class RBIntegration {
         String payloadPatch = gson.toJson(booking);
         System.out.println(payloadPatch);
 
-//      Ensure token and bookingId are available
-        test_createAuthToken();
-        test_createBooking();
-
         requestSpecification = RestAssured.given();
         requestSpecification.baseUri(BASE_URL);
         requestSpecification.basePath("/booking/" +bookingId);
@@ -130,5 +126,67 @@ public class RBIntegration {
 
         assertThat(bookingPatch.getFirstName()).isNotEmpty().isEqualTo("John");
 
+    }
+
+
+    @Description("TC#4 - Get the Booking by Id and verify -> GET")
+    @Test
+    public void test_getBooking(){
+
+        requestSpecification = RestAssured.given();
+        requestSpecification.baseUri(BASE_URL);
+        requestSpecification.basePath("/booking/" +bookingId);
+        requestSpecification.contentType(ContentType.JSON);
+
+        response = requestSpecification.when().get();
+        String ResponseString = response.asString();
+
+        validatableResponse = response.then().log().all();
+        validatableResponse.statusCode(200);
+
+        Gson gson = new Gson();
+        Booking booking = gson.fromJson(ResponseString, Booking.class);
+        String firstname = booking.getFirstName();
+        System.out.println(firstname);
+
+        assertThat(firstname).isNotEmpty().isNotBlank().isEqualTo("John");
+
+    }
+
+    @Description("TC#5 - Delete the created Booking by id -> DELETE")
+    @Test
+    public void test_DeleteBookingById() {
+        requestSpecification = RestAssured.given();
+        requestSpecification.baseUri(BASE_URL);
+        requestSpecification.basePath("/booking/" + bookingId);
+        requestSpecification.contentType(ContentType.JSON).log().all();
+        requestSpecification.cookie("token", token);
+
+        response = requestSpecification.when().log().all().delete();
+        String responseString = response.asString();
+        System.out.println(responseString);
+
+        validatableResponse = response.then().log().all();
+        validatableResponse.statusCode(201);
+
+        assertThat(responseString).isEqualTo("Created");
+    }
+
+    @Description("TC#6 - Get the DeletedBooking -> GET")
+    @Test
+    public void test_Get_DeletedBooking(){
+        requestSpecification = RestAssured.given();
+        requestSpecification.baseUri(BASE_URL);
+        requestSpecification.basePath("/booking/" + bookingId);
+        requestSpecification.contentType(ContentType.JSON).log().all();
+
+        response = requestSpecification.when().log().all().get();
+        String responseString = response.asString();
+        System.out.println(responseString);
+
+        validatableResponse = response.then().log().all();
+        validatableResponse.statusCode(404);
+
+        assertThat(responseString).isEqualTo("Not Found");
     }
 }
