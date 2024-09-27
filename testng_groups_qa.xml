@@ -3,6 +3,7 @@
 <suite name="All Test Suite">
     <test verbose="2" preserve-order="true" name="C:/Users/shash/IdeaProjects/APIAutomation">
         <groups>
+            <!--      To run only qa group test cases      -->
             <run>
                 <include name="qa"></include>
                 <exclude name="reg"></exclude>

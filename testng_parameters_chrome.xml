@@ -3,6 +3,7 @@
 <suite name="All Test Suite">
     <test verbose="2" preserve-order="true" name="APIAutomation">
 
+<!--        To pass parameter as chrome-->
 <!--        <parameter name="browser" value="chrome"></parameter>-->
         <parameter name="browser" value="chrome" />
 
