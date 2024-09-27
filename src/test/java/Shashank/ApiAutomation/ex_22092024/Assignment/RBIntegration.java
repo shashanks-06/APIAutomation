@@ -9,6 +9,7 @@ import io.restassured.response.ValidatableResponse;
 import io.restassured.specification.RequestSpecification;
 import org.testng.annotations.Test;
 
+import java.awt.print.Book;
 import java.util.Arrays;
 import java.util.List;
 
@@ -225,5 +226,49 @@ public class RBIntegration {
             System.out.println("No Booking ID is found in the response");
         }
 
+
+
+    }
+
+    @Description("TC#8 - Update the Booking by the id got from test_Get_AllBookingIds() -> POST")
+    @Test
+    public void test_UpdateBooking(){
+        Booking booking = new Booking();
+        booking.setFirstName("Jin");
+        booking.setLastName("Sakai");
+        booking.setTotalPrice(999);
+        booking.setDepositPaid(true);
+
+        BookingDates bookingDates = new BookingDates();
+        bookingDates.setCheckIn("1200-01-01");
+        bookingDates.setCheckOut("1300-12-31");
+
+        booking.setBookingDates(bookingDates);
+        booking.setAdditionalNeeds("Lunch");
+
+        Gson gson = new Gson();
+        String payloadPUT = gson.toJson(booking);
+        System.out.println(payloadPUT);
+
+        requestSpecification = RestAssured.given();
+        requestSpecification.baseUri(BASE_URL);
+        requestSpecification.basePath("/booking/" +bookingId);
+        requestSpecification.contentType(ContentType.JSON);
+        requestSpecification.cookie("token", token);
+        requestSpecification.body(payloadPUT).log().all();
+
+        response = requestSpecification.when().log().all().put();
+        String responseString = response.asString();
+
+        validatableResponse = response.then().log().all();
+        validatableResponse.statusCode(200);
+
+        Booking bookingPUT = gson.fromJson(responseString, Booking.class);
+        String firstname = bookingPUT.getFirstName();
+        String lastname = bookingPUT.getLastName();
+        System.out.println(firstname + " " + lastname);
+
+        assertThat(firstname).isNotEmpty().isEqualTo("Jin");
+        assertThat(lastname).isNotEmpty().isEqualTo("Sakai");
     }
 }

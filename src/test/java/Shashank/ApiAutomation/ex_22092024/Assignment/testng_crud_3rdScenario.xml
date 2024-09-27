@@ -9,12 +9,10 @@
                 <methods>
                     <include name="test_Get_AllBookingIds">
                     </include>
-<!--                    <include name="test_createBooking">-->
-<!--                    </include>-->
-<!--                    <include name="test_DeleteBookingById">-->
-<!--                    </include>-->
-<!--                    <include name="test_Get_DeletedBooking">-->
-<!--                    </include>-->
+                    <include name="test_createAuthToken">
+                    </include>
+                    <include name="test_UpdateBooking">
+                    </include>
                 </methods>
             </class>
         </classes>
