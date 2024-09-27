@@ -5,12 +5,15 @@
 
         <classes>
             <class name="Shashank.ApiAutomation.ex_22092024.Assignment.RBIntegration">
+<!--                Create a Booking, Update the Booking Name, Get the Booking by Id and verify.            -->
                 <methods>
                     <include name="test_createAuthToken">
                     </include>
                     <include name="test_createBooking">
                     </include>
                     <include name="test_update_bookingName">
+                    </include>
+                    <include name="test_getBooking">
                     </include>
                 </methods>
             </class>
