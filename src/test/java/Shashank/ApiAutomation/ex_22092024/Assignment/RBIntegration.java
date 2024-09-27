@@ -9,6 +9,10 @@ import io.restassured.response.ValidatableResponse;
 import io.restassured.specification.RequestSpecification;
 import org.testng.annotations.Test;
 
+import java.util.Arrays;
+import java.util.Collections;
+import java.util.List;
+
 import static org.assertj.core.api.Assertions.*;
 
 
@@ -188,5 +192,39 @@ public class RBIntegration {
         validatableResponse.statusCode(404);
 
         assertThat(responseString).isEqualTo("Not Found");
+    }
+
+    @Description("TC#7 - Get All Booking IDs -> GET")
+    @Test
+    public void test_Get_AllBookingIds(){
+        requestSpecification = RestAssured.given();
+        requestSpecification.baseUri(BASE_URL);
+        requestSpecification.basePath("/booking");
+        requestSpecification.contentType(ContentType.JSON).log().all();
+
+        response = requestSpecification.when().log().all().get();
+        String responseString = response.asString();
+        System.out.println(responseString);
+
+        validatableResponse = response.then().log().all();
+        validatableResponse.statusCode(200);
+
+        Gson gson = new Gson();
+        ResponseAllBookingIds[] allBookingIdsArray = gson.fromJson(responseString, ResponseAllBookingIds[].class);
+
+        List<ResponseAllBookingIds> allBookingIdsList = Arrays.asList(allBookingIdsArray);
+        // Print all booking IDs for verification
+//        for (ResponseAllBookingIds booking : allBookingIdsList) {
+//            System.out.println("Booking ID: " + booking.getBookingid());
+//        }
+
+        // Store the first booking ID into the global variable
+        if (!allBookingIdsList.isEmpty()){
+            bookingId = allBookingIdsList.get(0).getBookingid();
+            System.out.println(bookingId);
+        }else {
+            System.out.println("No Booking ID is found in the response");
+        }
+
     }
 }

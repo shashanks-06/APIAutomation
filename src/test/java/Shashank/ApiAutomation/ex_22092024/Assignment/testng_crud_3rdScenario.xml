@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="All Test Suite">
+    <test verbose="2" preserve-order="true" name="APIAutomation/CRUD">
+
+        <classes>
+            <class name="Shashank.ApiAutomation.ex_22092024.Assignment.RBIntegration">
+<!-- -     Get an Existing Booking from Get All Bookings Ids , Update a Booking and Verify using GET by id.            -->
+                <methods>
+                    <include name="test_Get_AllBookingIds">
+                    </include>
+<!--                    <include name="test_createBooking">-->
+<!--                    </include>-->
+<!--                    <include name="test_DeleteBookingById">-->
+<!--                    </include>-->
+<!--                    <include name="test_Get_DeletedBooking">-->
+<!--                    </include>-->
+                </methods>
+            </class>
+        </classes>
+    </test>
+</suite>
