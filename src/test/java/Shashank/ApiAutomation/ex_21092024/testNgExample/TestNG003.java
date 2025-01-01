@@ -3,8 +3,6 @@ package Shashank.ApiAutomation.ex_21092024.testNgExample;
 
 import org.testng.annotations.Test;
 
-import static org.testng.TestRunner.PriorityWeight.priority;
-
 public class TestNG003 {
 
     @Test(priority = 1)
